@@ -1,0 +1,35 @@
+{
+  "name": "@ihorvorotnov/secateur",
+  "version": "1.0.0",
+  "description": "A handy tool to clean up your dead git branches",
+  "license": "MIT",
+  "repository": "ihorvorotnov/secateur",
+  "author": {
+    "name": "Ihor Vorotnov",
+    "email": "ihor.vorotnov@gmail.com",
+    "url": "https://ihorvorotnov.com"
+  },
+  "type": "module",
+  "bin": {
+    "secateur": "./src/cli.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "git",
+    "branch",
+    "cleanup",
+    "delete",
+    "remove",
+    "prune",
+    "cli",
+    "cli-app",
+    "cli-tool"
+  ],
+  "dependencies": {},
+  "devDependencies": {}
+}
