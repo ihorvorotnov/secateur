@@ -1,2 +1,3 @@
-# secateur
-Chop unnecessary git branches
+# Secateur
+
+Chop unnecessary git branches.
