@@ -6,7 +6,7 @@ import chalk from 'chalk';
 import enquirer from 'enquirer';
 
 await $`git rev-parse --is-inside-work-tree`
-	.catch(error => {
+	.catch(() => {
 		console.error(chalk.red('Oopsie! This does not look like a git repository.'));
 		process.exit(1);
 	});
