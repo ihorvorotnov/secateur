@@ -10,3 +10,23 @@ await $`git rev-parse --is-inside-work-tree`
 		console.error(chalk.red('Oopsie! This does not look like a git repository.'));
 		process.exit(1);
 	});
+
+const branches = await $`git branch -vv --format %(HEAD)~%(refname:lstrip=2)~%(upstream:track)~%(upstream:lstrip=3)`;
+
+const branchesData = branches.stdout
+	.split('\n')
+	.map(branch => {
+		const [head, name, track, remoteName] = branch.split('~');
+		const disabledMap = {
+			'develop': 'Default',
+			'*': 'Current'
+		};
+
+		return {
+			name,
+			hint: track === '[gone]' ? 'Merged' : '',
+			disabled: disabledMap[name] || disabledMap[head] || false,
+		};
+	});
+
+console.log(branchesData);
