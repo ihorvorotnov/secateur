@@ -29,4 +29,15 @@ const branchesData = branches.stdout
 		};
 	});
 
-console.log(branchesData);
+const {MultiSelect} = enquirer;
+
+const prompt = new MultiSelect({
+	message: 'Select branches to delete:',
+	limit: 1000,
+	name: 'value',
+	choices: branchesData,
+});
+
+prompt.run()
+	.then(answer => console.log('Answer:', answer))
+	.catch(console.error);
